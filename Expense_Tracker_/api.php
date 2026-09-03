@@ -1,12 +1,7 @@
 <?php
 declare(strict_types=1);
 
-/*
- * Expense Tracker API
- * Render runs this file with PHP's built-in server. SQLite keeps the app
- * self-contained; mount a persistent disk at /var/data on Render for data
- * that must survive deploys.
- */
+
 
 session_name('expense_tracker_session');
 session_start();
@@ -43,13 +38,13 @@ $database->exec(
         ON transactions(user_id, transaction_date);'
 );
 
-// Keep the first visit useful without putting demo credentials in JavaScript.
-$demoCheck = $database->query("SELECT id FROM users WHERE username = 'nick'")->fetchColumn();
+
+$demoCheck = $database->query("SELECT id FROM users WHERE username = 'Maruf'")->fetchColumn();
 if (!$demoCheck) {
     $demoUser = $database->prepare(
         'INSERT INTO users (username, name, password_hash) VALUES (?, ?, ?)'
     );
-    $demoUser->execute(['nick', 'Nick Kenter', password_hash('demo123', PASSWORD_DEFAULT)]);
+    $demoUser->execute(['maruf', 'Maruf8943', password_hash('demo123', PASSWORD_DEFAULT)]);
     $demoId = (int) $database->lastInsertId();
     $today = new DateTimeImmutable('today');
     $demoDate = fn(int $daysAgo): string => $today->modify("-{$daysAgo} days")->format('Y-m-d');
