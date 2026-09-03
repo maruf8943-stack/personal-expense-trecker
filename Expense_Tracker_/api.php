@@ -1,12 +1,6 @@
 <?php
 declare(strict_types=1);
 
-/*
- * Expense Tracker API
- * Render runs this file with PHP's built-in server. SQLite keeps the app
- * self-contained; mount a persistent disk at /var/data on Render for data
- * that must survive deploys.
- */
 
 session_name('expense_tracker_session');
 session_start();
@@ -43,7 +37,6 @@ $database->exec(
         ON transactions(user_id, transaction_date);'
 );
 
-// Keep the first visit useful without putting demo credentials in JavaScript.
 $demoCheck = $database->query("SELECT id FROM users WHERE username = 'nick'")->fetchColumn();
 if (!$demoCheck) {
     $demoUser = $database->prepare(
