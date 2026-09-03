@@ -1,6 +1,3 @@
--- Personal Expense Tracker database schema
--- The PHP API creates these tables automatically on first request.
--- This file is included for manual SQLite setup or project documentation.
 
 PRAGMA foreign_keys = ON;
 
