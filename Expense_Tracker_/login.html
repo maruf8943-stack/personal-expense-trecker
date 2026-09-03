@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in - Personal Expense</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body class="auth-body">
+
+    <div class="auth-wrapper">
+
+        <div class="auth-brand">
+            <h1>Personal Expense</h1>
+            <p>Track your income, expenses and spending habits in one clean dashboard.</p>
+
+            <ul class="auth-brand-points">
+                <li>Multiple accounts on one device</li>
+                <li>Visual monthly overview</li>
+                <li>Track income, expenses, and savings</li>
+            </ul>
+        </div>
+
+        <div class="auth-card">
+
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-tab="login">Sign In</button>
+                <button class="auth-tab" data-tab="register">Create Account</button>
+            </div>
+
+            <p class="auth-error" id="authError"></p>
+            <p class="auth-success" id="authSuccess"></p>
+
+            <!-- LOGIN FORM -->
+            <form id="loginForm" class="auth-form">
+                <label>Username</label>
+                <input type="text" id="loginUsername" placeholder="e.g. nick" autocomplete="username" required>
+
+                <label>Password</label>
+                <input type="password" id="loginPassword" placeholder="Enter password" autocomplete="current-password" required>
+
+                <button type="submit" class="auth-submit-btn">Sign In</button>
+
+                <div class="auth-demo-hint">
+                    Demo account &mdash; username <strong>nick</strong>, password <strong>demo123</strong>
+                </div>
+            </form>
+
+            <!-- REGISTER FORM -->
+            <form id="registerForm" class="auth-form hidden">
+                <label>Full Name</label>
+                <input type="text" id="registerName" placeholder="e.g. Nick Kenter" required>
+
+                <label>Username</label>
+                <input type="text" id="registerUsername" placeholder="Choose a username" required>
+
+                <label>Password</label>
+                <input type="password" id="registerPassword" placeholder="Choose a password" required minlength="4">
+
+                <label>Confirm Password</label>
+                <input type="password" id="registerConfirm" placeholder="Repeat password" required minlength="4">
+
+                <button type="submit" class="auth-submit-btn">Create Account</button>
+            </form>
+
+        </div>
+    </div>
+
+    <script src="common.js"></script>
+    <script src="login.js"></script>
+</body>
+
+</html>
